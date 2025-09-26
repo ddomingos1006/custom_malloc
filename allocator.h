@@ -1,4 +1,6 @@
 // Daniel Domingos (Github: ddomingos1006)
+// Outlines and provides the API for a simple dynamic memory allocator
+// using a doubly linked explicit free list 
 
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
