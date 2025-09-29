@@ -2,14 +2,23 @@
 // Outlines and provides the API for a simple dynamic memory allocator
 // using a doubly linked explicit free list 
 
+#include <windows.h>
+#include <unistd.h>
+#include <stddef.h>
+
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
 
 #define INITIAL_SIZE 1024 * 1024
 #define ALIGNMENT 8
 
+typedef struct block {
+    size_t size; 
+    void* beginning;
+} block;
+
 // initialize the allocator and an initially free array of INITIAL_SIZE bytes 
-void init_allocator(void);
+block init_allocator(size_t init_size);
 
 // allocate size bytes on the heap, returning a pointer to the allocated block
 void* d_malloc(size_t size);
